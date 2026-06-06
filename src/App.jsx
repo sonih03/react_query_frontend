@@ -14,6 +14,14 @@ import { useState } from 'react'
 import RegisterPage from './no1_pages/user/RegisterPage'
 import store from './no3_store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ProductPage from './no1_pages/sales/ProductPage'
+import SalesPage from './no1_pages/sales/SalesPage'
+import "ag-grid-community/styles/ag-grid.css"
+import "ag-grid-community/styles/ag-theme-alpine.css"
+import { ModuleRegistry, AlignedGridsModule, AllCommunityModule } from 'ag-grid-community'
+ModuleRegistry.registerModules([
+  AllCommunityModule
+])
 
 
 const queryClient = new QueryClient();
@@ -31,17 +39,13 @@ function App() {
               <SiderBar/>
               <PageContainer>
                 <Routes>       
-                    <Route path="/login" element={
-                    <LoginPage/>
-                    }/>
-                  <Route path="/register" element={
-                    <RegisterPage />
-                    }/>                            
+                  <Route path="/login" element={<LoginPage/>}/>
+                  <Route path="/register" element={<RegisterPage />}/>                            
                   <Route path="/" element={<HomePage/>}/>
-                  <Route path="/todo" element={                
-                      <TodoPage/>                 
-                  }/>
+                  <Route path="/todo" element={<TodoPage/>}/>
                   <Route path="/employee" element={<EmployeePage/>}/>
+                  <Route path="/product" element={<ProductPage/>}/>
+                  <Route path="/sales" element={<SalesPage/>}/>
                 </Routes>
               </PageContainer>
             </BodyLayout>
@@ -57,7 +61,9 @@ export default App
 const Container = styled.div`
     width: 100%;
     min-height: 100vh;
-    background: #f1f5f9;
+    background: #cbd9e7;
+    color: #0f172a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 `;
 
 const BodyLayout = styled.div`
@@ -67,7 +73,7 @@ const BodyLayout = styled.div`
 const PageContainer = styled.main`
     flex: 1;
     padding: 32px;
-    background: #f8fafc;
+    background: transparent;
     min-height: calc(100vh - 70px);
 
     @media (max-width: 768px){

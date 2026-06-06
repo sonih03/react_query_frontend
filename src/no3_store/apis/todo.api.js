@@ -12,7 +12,7 @@ export const todoAllGetApi = async () => {
 
 export const todoGetApi = async (id) => {
     try{
-        await axios.get(`http://localhost:3001/todos/${id}`)
+        const response = await axios.get(`http://localhost:3001/todos/${id}`)
         return response.data
     }
     catch(error){
@@ -46,6 +46,6 @@ export const todoDeleteApi = async (id) => {
         return id;
     }
     catch(error){
-        return error
+        return new Error(error);
     }
 }

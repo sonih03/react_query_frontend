@@ -51,9 +51,14 @@ export default EmployeeTable;
 const TableWrapper = styled.div`
   width: 100%;
   overflow-x: auto;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow: 
+    inset 0 3px 4px rgba(255, 255, 255, 0.7),
+    inset 0 -5px 10px rgba(255, 255, 255, 0.3),
+    inset 0 4px 6px rgba(0, 0, 0, 0.02),
+    0 15px 35px rgba(0, 0, 0, 0.05);
 `;
 
 const StyledTable = styled.table`
@@ -64,29 +69,29 @@ const StyledTable = styled.table`
 `;
 
 const Th = styled.th`
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.15);
   padding: 16px 20px;
   font-size: 13px;
   font-weight: 700;
   color: #475569;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   letter-spacing: 0.05em;
 `;
 
 const Td = styled.td`
   padding: 18px 20px;
   font-size: 14px;
-  color: #334155;
-  border-bottom: 1px solid #f1f5f9;
-  font-weight: 500;
+  color: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 600;
 `;
 
 const Row = styled.tr`
-  background: white;
+  background: transparent;
   transition: background-color 0.2s ease;
   
   &:hover {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.12);
   }
 `;
 
@@ -97,7 +102,7 @@ const Placeholder = styled.div`
   justify-content: center;
   padding: 48px 24px;
   text-align: center;
-  background: #fafafa;
+  background: transparent;
 `;
 
 const PlaceholderIcon = styled.div`
@@ -110,5 +115,5 @@ const PlaceholderText = styled.p`
   font-size: 14px;
   color: #64748b;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 `;

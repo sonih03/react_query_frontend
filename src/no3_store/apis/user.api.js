@@ -71,8 +71,7 @@ export const userPostApi = async (dataObj)=>{
         return response.data
 
     }catch(error){
-        return error
-
+        return new Error(error);
     }
 }
 

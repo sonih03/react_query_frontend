@@ -21,7 +21,7 @@ export const userRegisterSlice = createAsyncThunk(
     "userRegisterSlice",
     async(userObj, thunkApi) => {
         try{
-            const user = await userPostApi(userObj)
+            const user = await userRegisterApi(userObj)
             return user
         }
         catch(error){

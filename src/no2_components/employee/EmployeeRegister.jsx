@@ -29,60 +29,56 @@ const EmployeeRegister = () => {
         alert("직원 등록 실패");
       }
     }; 
-}
-//     return (
-//       <FormContainer onSubmit={handleSubmit}>
-//         <FormTitle>새 직원 등록</FormTitle>
-//         <FormGrid>
-//           <FormGroup>
-//             <Label>이름</Label>
-//             <Input
-//               type="text"
-//               name="name"
-//               value={emp.name}
-//               onChange={handleChange}
-//               placeholder="홍길동"
-//               required
-//             />
-//           </FormGroup>
-//           <FormGroup>
-//             <Label>이메일</Label>
-//             <Input
-//               type="email"
-//               name="email"
-//               value={emp.email}
-//               onChange={handleChange}
-//               placeholder="example@email.com"
-//               required
-//             />
-//           </FormGroup>
-//           <FormGroup>
-//             <Label>직업</Label>
-//             <Input
-//               type="text"
-//               name="job"
-//               value={emp.job}
-//               onChange={handleChange}
-//               placeholder="프론트엔드 개발자"
-//               required
-//             />
-//           </FormGroup>
-//           <FormGroup>
-//             <Label>급여 (원)</Label>
-//             <Input
-//               type="number"
-//               name="pay"
-//               value={emp.pay}
-//               onChange={handleChange}
-//               placeholder="3500000"
-//               required
-//             />
-//           </FormGroup>
-//         </FormGrid>
-//         <SubmitButton type="submit">등록하기</SubmitButton>
-//       </FormContainer>
-//     );
-// }; 
+
+    return (
+      <FormContainer onSubmit={handleSubmit}>
+        <FormTitle>새 직원 등록</FormTitle>
+        <FormGrid>
+          <FormGroup>
+            <Label>이름</Label>
+            <Input
+              type="text"
+              name="name"
+              value={emp.name}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>이메일</Label>
+            <Input
+              type="email"
+              name="email"
+              value={emp.email}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>직업</Label>
+            <Input
+              type="text"
+              name="job"
+              value={emp.job}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>급여 (원)</Label>
+            <Input
+              type="number"
+              name="pay"
+              value={emp.pay}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+        </FormGrid>
+        <SubmitButton type="submit">등록하기</SubmitButton>
+      </FormContainer>
+    );
+}; 
 
 export default EmployeeRegister;
 
@@ -91,7 +87,7 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: #ffffff;
+  background: transparent;
   padding: 8px 4px;
 `;
 
@@ -125,18 +121,22 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  padding: 12px 14px;
+  padding: 12px 20px;
   font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   outline: none;
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #0f172a;
+  box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.03);
   transition: all 0.2s ease;
 
   &:focus {
-    border-color: #3b82f6;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1), inset 0 1.5px 2px rgba(255, 255, 255, 0.5);
   }
   
   &::placeholder {
@@ -145,21 +145,26 @@ const Input = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  padding: 12px 24px;
+  padding: 12px 28px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
-  background: #3b82f6;
-  border: none;
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.65) 0%, rgba(139, 92, 246, 0.25) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
   cursor: pointer;
   align-self: flex-start;
+  box-shadow: 
+    0 15px 25px rgba(139, 92, 246, 0.15), 
+    inset 0 2.5px 3px rgba(255, 255, 255, 0.75), 
+    inset 0 -5px 7px rgba(255, 255, 255, 0.4), 
+    inset 0 4px 4px rgba(139, 92, 246, 0.15);
   transition: all 0.2s ease;
 
   &:hover {
-    background: #2563eb;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.75) 0%, rgba(139, 92, 246, 0.35) 100%);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 15px 25px rgba(139, 92, 246, 0.22), inset 0 2.5px 3px rgba(255, 255, 255, 0.85);
   }
 
   &:active {

@@ -49,6 +49,6 @@ export const employeeDeleteApi = async (id) => {
         return id
     }
     catch(error){
-        throw error
+        return new Error(error);
     }
 }

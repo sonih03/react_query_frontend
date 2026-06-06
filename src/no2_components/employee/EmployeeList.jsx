@@ -26,8 +26,8 @@ const EmployeeList = ({selectedId, setSelectedId}) => {
           $active={selectedId === item.id}
           onClick={() => setSelectedId(item.id)}
         >
-          <Name>{item.name || item.username}</Name>
-          <Job>{item.job}</Job>
+          <Name $active={selectedId === item.id}>{item.name || item.username}</Name>
+          <Job $active={selectedId === item.id}>{item.job}</Job>
         </EmployeeButton>
       ))}
     </Container>
@@ -39,7 +39,7 @@ export default EmployeeList
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
 `;
 
@@ -47,29 +47,46 @@ const EmployeeButton = styled.button`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid ${({ $active }) => ($active ? '#3b82f6' : '#e2e8f0')};
-  background: ${({ $active }) => ($active ? '#eff6ff' : 'white')};
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid ${({ $active }) => ($active ? 'rgba(0, 250, 250, 0.4)' : 'rgba(255, 255, 255, 0.35)')};
+  background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(0, 200, 200, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)')};
+  box-shadow: ${({ $active }) => ($active ? 'inset 0 3px 4px rgba(255, 255, 255, 0.8), inset 0 -5px 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(0, 200, 200, 0.2)' : 'inset 0 1px 1px rgba(255, 255, 255, 0.5)')};
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
   width: 100%;
 
   &:hover {
-    background: ${({ $active }) => ($active ? '#eff6ff' : '#f8fafc')};
-    border-color: #cbd5e1;
+    background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(0, 200, 200, 0.35) 0%, rgba(255, 255, 255, 0.08) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%)')};
+    border-color: ${({ $active }) => ($active ? 'rgba(0, 250, 250, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
 const Name = styled.div`
   font-size: 15px;
-  font-weight: 600;
-  color: #1e293b;
+  font-weight: 700;
+  color: ${({ $active }) => ($active ? '#0f766e' : '#1e293b')};
+  transition: color 0.2s ease;
+  
+  ${EmployeeButton}:hover & {
+    color: ${({ $active }) => ($active ? '#0f766e' : '#0f172a')};
+  }
 `;
 
 const Job = styled.div`
   font-size: 13px;
-  color: #64748b;
+  color: ${({ $active }) => ($active ? '#0d9488' : '#64748b')};
   margin-top: 4px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  
+  ${EmployeeButton}:hover & {
+    color: ${({ $active }) => ($active ? '#0d9488' : '#334155')};
+  }
 `;

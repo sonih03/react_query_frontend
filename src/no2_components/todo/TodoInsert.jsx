@@ -56,18 +56,22 @@ const Form = styled.form`
 
 const Input = styled.input`
   flex: 1;
-  padding: 14px 18px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
   font-size: 15px;
   outline: none;
-  transition: all 0.2s ease-in-out;
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #0f172a;
+  box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
 
   &:focus {
-    border-color: #3b82f6;
-    background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1), inset 0 1.5px 2px rgba(255, 255, 255, 0.5);
   }
 
   &::placeholder {
@@ -76,19 +80,25 @@ const Input = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  padding: 0 24px;
-  background: #3b82f6;
+  padding: 0 28px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.65) 0%, rgba(139, 92, 246, 0.25) 100%);
   color: white;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 
+    0 15px 25px rgba(139, 92, 246, 0.15), 
+    inset 0 2.5px 3px rgba(255, 255, 255, 0.75), 
+    inset 0 -5px 7px rgba(255, 255, 255, 0.4), 
+    inset 0 4px 4px rgba(139, 92, 246, 0.15);
+  transition: all 0.2s ease;
 
   &:hover {
-    background: #2563eb;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.75) 0%, rgba(139, 92, 246, 0.35) 100%);
     transform: translateY(-1px);
+    box-shadow: 0 15px 25px rgba(139, 92, 246, 0.22), inset 0 2.5px 3px rgba(255, 255, 255, 0.85);
   }
 
   &:active {

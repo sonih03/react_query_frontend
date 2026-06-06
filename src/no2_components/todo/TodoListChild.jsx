@@ -111,15 +111,19 @@ export default TodoListChild
 const TodoItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 14px 18px;
-  background: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  transition: all 0.2s ease-in-out;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 10px 20px rgba(31, 38, 135, 0.02), 
+    inset 0 2px 3px rgba(255, 255, 255, 0.7), 
+    inset 0 -3px 5px rgba(255, 255, 255, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 100%);
+    border-color: rgba(255, 255, 255, 0.55);
     transform: translateX(2px);
   }
 `;
@@ -132,16 +136,16 @@ const CheckboxWrapper = styled.div`
 `;
 
 const CheckedIcon = styled(MdCheckBox)`
-  color: #3b82f6;
-  font-size: 22px;
+  color: #a855f7;
+  font-size: 24px;
 `;
 
 const UncheckedIcon = styled(MdCheckBoxOutlineBlank)`
   color: #cbd5e1;
-  font-size: 22px;
+  font-size: 24px;
   
   &:hover {
-    color: #94a3b8;
+    color: #a855f7;
   }
 `;
 
@@ -152,8 +156,8 @@ const TextWrapper = styled.div`
 
 const TodoText = styled.div`
   font-size: 15px;
-  font-weight: 500;
-  color: ${({ $checked }) => ($checked ? '#94a3b8' : '#334155')};
+  font-weight: 600;
+  color: ${({ $checked }) => ($checked ? '#94a3b8' : '#1e293b')};
   text-decoration: ${({ $checked }) => ($checked ? 'line-through' : 'none')};
   cursor: pointer;
   user-select: none;
@@ -164,10 +168,10 @@ const EditInput = styled.input`
   width: 100%;
   border: none;
   background: transparent;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #a855f7;
   font-size: 15px;
-  font-weight: 500;
-  color: #334155;
+  font-weight: 600;
+  color: #1e293b;
   outline: none;
   padding: 2px 0;
 `;
@@ -178,10 +182,11 @@ const RemoveButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   margin-left: 12px;
 
   &:hover {
-    color: #ef4444;
+    color: #f43f5e;
+    transform: scale(1.1);
   }
 `;

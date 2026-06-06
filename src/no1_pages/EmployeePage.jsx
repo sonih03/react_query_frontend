@@ -47,7 +47,7 @@ const EmployeePage = () => {
 
         <LeftSection>
 
-          <Card>
+          <PinkCard>
             <SectionTitle>
               직원 목록
             </SectionTitle>
@@ -56,13 +56,13 @@ const EmployeePage = () => {
               selectedId = {selectedId}
               setSelectedId = {setSelectedId}
             />
-          </Card>
+          </PinkCard>
 
         </LeftSection>
 
         <RightSection>
 
-          <Card>
+          <BlueCard>
             <SectionTitle>
               직원 정보
             </SectionTitle>
@@ -70,9 +70,9 @@ const EmployeePage = () => {
             <EmployeeTable
               selectedId = {selectedId}
             />
-          </Card>
+          </BlueCard>
 
-          <Card>
+          <BlueCard>
 
             <ButtonGroup>
               <ActionButton
@@ -132,7 +132,7 @@ const EmployeePage = () => {
               null
             }
 
-          </Card>
+          </BlueCard>
 
         </RightSection>
 
@@ -149,7 +149,7 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 32px;
-  background: #f8fafc;
+  background: transparent;
 `
 
 const Title = styled.h1`
@@ -184,12 +184,38 @@ const RightSection = styled.div`
   gap: 24px;
 `
 
-const Card = styled.div`
-  background: white;
-  border-radius: 16px;
+const PinkCard = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(255, 192, 203, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 24px;
   padding: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  border: 1px solid #f1f5f9;
+  border: 1px solid rgba(255, 192, 203, 0.4);
+  box-shadow: 
+    inset 0 3px 5px rgba(255, 255, 255, 0.6),
+    inset 0 -5px 12px rgba(255, 255, 255, 0.2),
+    0 15px 30px rgba(0, 0, 0, 0.03);
+`
+
+const BlueCard = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(173, 216, 230, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid rgba(173, 216, 230, 0.4);
+  box-shadow: 
+    inset 0 3px 5px rgba(255, 255, 255, 0.6),
+    inset 0 -5px 12px rgba(255, 255, 255, 0.2),
+    0 15px 30px rgba(0, 0, 0, 0.03);
 `
 
 const SectionTitle = styled.h2`
@@ -206,36 +232,40 @@ const ButtonGroup = styled.div`
 `
 
 const ActionButton = styled.button`
-  border: none;
-  background: ${({ $active }) => ($active ? '#2563eb' : '#f1f5f9')};
-  color: ${({ $active }) => ($active ? '#ffffff' : '#475569')};
-  padding: 10px 20px;
-  border-radius: 8px;
+  border: 1px solid ${({ $active }) => ($active ? 'rgba(168, 85, 247, 0.4)' : 'rgba(255, 255, 255, 0.35)')};
+  background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)')};
+  color: ${({ $active }) => ($active ? '#7c3aed' : '#475569')};
+  padding: 10px 24px;
+  border-radius: 9999px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  transition: all 0.2s ease;
+  box-shadow: ${({ $active }) => ($active ? 'inset 0 3px 4px rgba(255, 255, 255, 0.8), inset 0 -5px 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(168, 85, 247, 0.2)' : 'inset 0 1px 1px rgba(255, 255, 255, 0.5)')};
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover{
-    background: ${({ $active }) => ($active ? '#1d4ed8' : '#e2e8f0')};
-    color: ${({ $active }) => ($active ? '#ffffff' : '#1e293b')};
+    background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(255, 255, 255, 0.08) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%)')};
+    color: ${({ $active }) => ($active ? '#7c3aed' : '#0f172a')};
+    border-color: ${({ $active }) => ($active ? 'rgba(168, 85, 247, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
   }
 `
 
 const DeleteButton = styled.button`
-  border: none;
-  background: ${({ $active }) => ($active ? '#dc2626' : '#f1f5f9')};
-  color: ${({ $active }) => ($active ? '#ffffff' : '#475569')};
-  padding: 10px 20px;
-  border-radius: 8px;
+  border: 1px solid ${({ $active }) => ($active ? 'rgba(239, 68, 68, 0.4)' : 'rgba(255, 255, 255, 0.35)')};
+  background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)')};
+  color: ${({ $active }) => ($active ? '#dc2626' : '#475569')};
+  padding: 10px 24px;
+  border-radius: 9999px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  transition: all 0.2s ease;
+  box-shadow: ${({ $active }) => ($active ? 'inset 0 3px 4px rgba(255, 255, 255, 0.8), inset 0 -5px 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(239, 68, 68, 0.2)' : 'inset 0 1px 1px rgba(255, 255, 255, 0.5)')};
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover{
-    background: ${({ $active }) => ($active ? '#b91c1c' : '#fee2e2')};
-    color: ${({ $active }) => ($active ? '#ffffff' : '#b91c1c')};
+    background: ${({ $active }) => ($active ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.35) 0%, rgba(255, 255, 255, 0.08) 100%)' : 'linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 100%)')};
+    color: ${({ $active }) => ($active ? '#dc2626' : '#0f172a')};
+    border-color: ${({ $active }) => ($active ? 'rgba(239, 68, 68, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
   }
 `
 
@@ -244,32 +274,37 @@ const DeleteBox = styled.div`
   flex-direction: column;
   gap: 16px;
   padding: 20px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(254, 242, 242, 0.12) 0%, rgba(254, 242, 242, 0.03) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 16px;
   align-items: flex-start;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
 
   p {
     margin: 0;
-    color: #991b1b;
+    color: #b91c1c;
     font-weight: 600;
     font-size: 14px;
   }
 `
 
 const DeleteConfirmButton = styled.button`
-  border: none;
-  background: #dc2626;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+  color: #dc2626;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
+  box-shadow: 
+    inset 0 3px 4px rgba(255, 255, 255, 0.8), 
+    inset 0 -5px 10px rgba(255, 255, 255, 0.3), 
+    0 0 20px rgba(239, 68, 68, 0.2);
   transition: all 0.2s ease;
 
   &:hover {
-    background: #b91c1c;
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.35) 0%, rgba(255, 255, 255, 0.08) 100%);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.3), inset 0 3px 4px rgba(255, 255, 255, 0.85);
   }
 `
