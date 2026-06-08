@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const productAllGetApi = async () => {
     try{
-        const response = await axios.get("http://localhost:3001/product")
+        const response = await axios.get("http://localhost:3001/products")
         return response.data
     }
     catch(error){
@@ -15,7 +15,7 @@ export const productAllGetApi = async () => {
 
 export const productGetApi = async (id) => {
     try{
-        const response = await axios.get(`http://localhost:3001/product/${id}`)
+        const response = await axios.get(`http://localhost:3001/products/${id}`)
         return response.data
     }
     catch(error){
@@ -25,7 +25,7 @@ export const productGetApi = async (id) => {
 
 export const productPostApi = async (dataObj) => {
     try{
-        const response = await axios.post("http://localhost:3001/product",dataObj)
+        const response = await axios.post("http://localhost:3001/products",dataObj)
         return response.data
     }
     catch(error){
@@ -35,7 +35,7 @@ export const productPostApi = async (dataObj) => {
 
 export const productPutApi = async (dataObj) => {
     try{
-        const response = await axios.put(`http://localhost:3001/product/${dataObj.id}`,dataObj)
+        const response = await axios.put(`http://localhost:3001/products/${dataObj.id}`,dataObj)
         return response.data
     }
     catch(error){
@@ -45,7 +45,7 @@ export const productPutApi = async (dataObj) => {
 
 export const productDeleteApi = async (id) => {
     try{
-        await axios.delete(`http://localhost:3001/product/${id}`)
+        await axios.delete(`http://localhost:3001/products/${id}`)
         return id
     }
     catch(error){

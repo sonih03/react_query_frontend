@@ -1,5 +1,5 @@
 import React from 'react'
-import RegisterForm from '../../no2_components/user/RegisterForm'
+import RegisterForm from '../../no2_components/user/RegisterFormModal'
 
 const RegisterPage = () => {
   return (

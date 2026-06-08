@@ -16,7 +16,7 @@ const ProductModal = ({open, setOpen, initialValues, onSubmit}) => {
     }, [open, initialValues, form])
     const handleCancel = () => {
         setOpen(false);
-        form.resetFields();
+        form.resetFields();//애가 초기화를 시켜줌
     }
     const onFinish = async (values) => {
         await onSubmit(values);
@@ -106,6 +106,8 @@ const ProductModal = ({open, setOpen, initialValues, onSubmit}) => {
                 <Select
                     placeholder="카테고리 코드 선택"
                     options={[
+                        {value: "교수", label: "교수"},
+                        {value: "학생", label: "학생"},
                         {value: "E1", label: "E1"},
                         {value: "E2", label: "E2"},
                         {value: "E3", label: "E3"},

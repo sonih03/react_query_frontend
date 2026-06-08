@@ -9,10 +9,8 @@ import EmployeePage from './no1_pages/EmployeePage'
 
 import HeaderBar from './no2_components/layout/HeaderBar'
 import SiderBar from './no2_components/layout/SiderBar'
-import LoginPage from './no1_pages/user/LoginPage'
+// import LoginPage from './no1_pages/user/LoginPage'
 import { useState } from 'react'
-import RegisterPage from './no1_pages/user/RegisterPage'
-import store from './no3_store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ProductPage from './no1_pages/sales/ProductPage'
 import SalesPage from './no1_pages/sales/SalesPage'
@@ -39,8 +37,6 @@ function App() {
               <SiderBar/>
               <PageContainer>
                 <Routes>       
-                  <Route path="/login" element={<LoginPage/>}/>
-                  <Route path="/register" element={<RegisterPage />}/>                            
                   <Route path="/" element={<HomePage/>}/>
                   <Route path="/todo" element={<TodoPage/>}/>
                   <Route path="/employee" element={<EmployeePage/>}/>
