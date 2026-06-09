@@ -44,7 +44,7 @@ export const userRegisterApi = async (userObj)=>{
         const response = await axios.get(`http://localhost:3001/user?name=${userObj.username}`)
         const users = response.data
         if(users.length){
-            return Error("이미 존재하는 사용자입니다.")
+            throw new Error("이미 존재하는 사용자입니다.")
         }
 
         return await axios.post(`http://localhost:3001/user`,userObj)

@@ -21,10 +21,7 @@ export const useLoginUser = () => {
     return useMutation({
         mutationFn: userLoginApi,
         onSuccess: (user) => {
-            localStorage.setItem("currentUser", JSON.stringify(user));
-            queryClient.setQueryData(
-                ["user"], user
-            )
+            localStorage.setItem("currentUser", JSON.stringify(user))
         }
     })
 }

@@ -38,7 +38,7 @@ const HeaderBar = () => {
           {user ?
             <UserSection>
               <UserName>
-                {user.username}
+                {user.name}
               </UserName>
               <LogoutButton onClick={handleLogout}>
                 로그아웃
