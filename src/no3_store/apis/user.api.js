@@ -18,7 +18,7 @@ export const userLoginApi = async (userObj)=>{
     try{
         
         const response = await axios.get(
-            `http://localhost:3001/user?username=${userObj.username}`
+            `http://localhost:3001/user?name=${userObj.username}`
         )
         
         const users = response.data
@@ -41,7 +41,7 @@ export const userLoginApi = async (userObj)=>{
 
 export const userRegisterApi = async (userObj)=>{
     try{
-        const response = await axios.get(`http://localhost:3001/user?username=${userObj.username}`)
+        const response = await axios.get(`http://localhost:3001/user?name=${userObj.username}`)
         const users = response.data
         if(users.length){
             return Error("이미 존재하는 사용자입니다.")
